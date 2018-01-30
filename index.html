@@ -21,7 +21,7 @@
 <!-- Here I bind the data from the javascript application to display in a <ul> UnOrdered List -->
     <div class="container-fluid">
         <div class="row">
-          <nav class="col-md-2 d-none d-md-block bg-dark sidebar sidebar-height">
+          <nav class="col-md-2 bg-dark sidebar sidebar-height">
             <div class="sidebar-sticky">
               <ul class="nav flex-column" data-bind="foreach: nearAvalonFilter">
                     <a href="#"><li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li></a>
@@ -61,8 +61,7 @@
     </script>
 
    <!--TODO: Load the JS API ASYNCHRONOUSLY below.-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXOOIq4NvwqmV91XPBrprt4NV1Vysyk_0&callback=startApp"
-    async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXOOIq4NvwqmV91XPBrprt4NV1Vysyk_0&callback=startApp" async defer onerror="googleError()"></script>
 
 
     <!-- Bring in Knockout.js -->
