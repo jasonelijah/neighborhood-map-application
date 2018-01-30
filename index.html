@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS
+      I am using the Boostrap 4 starter template here.-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/mystyles.css">
+    <title>Avalon Favorites Neighborhood Map</title>
+  </head>
+  <body>
+
+    <!-- Grabbed a Navbar from the Bootstrap Demo https://getbootstrap.com/docs/4.0/examples/dashboard/  and modified to fit this project-->
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Avalon Favorites</a>
+      <input class="form-control" data-bind="textInput: filter, valueUpdate: 'afterkeydown'" placeholder="FILTER">
+    </nav>
+<!-- Here I bind the data from the javascript application to display in a <ul> UnOrdered List -->
+    <div class="container-fluid">
+        <div class="row">
+          <nav class="col-md-2 d-none d-md-block bg-dark sidebar sidebar-height">
+            <div class="sidebar-sticky">
+              <ul class="nav flex-column" data-bind="foreach: nearAvalonFilter">
+                    <a href="#"><li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li></a>
+                </ul>
+            </div>
+          </nav>
+<!--  Place Map on Page. Reference Understanding API Services | Places Details Udacity Course -->
+<!-- TODO 1: Create a place to put the map in the HTML-->
+   <div id="map" class="col-md-10 float-right"></div>
+
+
+ <!--   <script>
+     // TODO: Create a map variable
+     var map;
+     // TODO: Complete the following function to initialize the map
+     function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 40.7413549, lng: -73.99802439999996},
+          zoom: 8
+        });
+       // TODO: use a constructor to create a new map JS object. You can use the coordinates
+       // we used, 40.7413549, -73.99802439999996 or your own!
+   }
+   </script> -->
+
+        </div> <!-- End Row -->
+
+  </body>
+    <script
+        src="js/mapmarkers.js" charset="utf-8">
+    </script>
+
+    <script
+        src="js/styles.js" charset="utf-8">
+    </script>
+
+    <script
+        src="js/app.js" charset="utf-8">
+    </script>
+
+   <!--TODO: Load the JS API ASYNCHRONOUSLY below.-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXOOIq4NvwqmV91XPBrprt4NV1Vysyk_0&callback=startApp"
+    async defer></script>
+
+
+    <!-- Bring in Knockout.js -->
+    <script src="js/knockout-3.4.2.js" charset="utf-8"></script>
+
+    <!-- Optional JavaScript from Bootstrap Template-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
